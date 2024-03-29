@@ -1,13 +1,22 @@
 # Aliases
 
-alias moff="wlr-randr --output eDP-1 --off"
-alias mon="wlr-randr --output eDP-1 --on"
-alias l="lsd -hA --group-dirs first"
-alias ll="lsd -l -hA --group-dirs first"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias off="systemctl poweroff"
-alias rst="systemctl reboot"
-alias cfgup="config add -u; config commit -m "Config updated""
-alias cl="clear"
-alias z="zoxide"
-alias y="yazi"
+# System Control
+
+alias off="systemctl poweroff"                                            # Shutdown
+alias rst="systemctl reboot"                                              # Reboot
+alias moff="wlr-randr --output eDP-1 --off"                               # Turn off Laptop Monitor
+alias mon="wlr-randr --output eDP-1 --on"                                 # Turn on Laptop Monitor
+
+# Terminal Tools
+
+alias hint="bat .config/zsh/.aliases"                                     # Show hint
+alias l="lsd -hA --group-dirs first"                                      # List directory and show hidden
+alias ll="lsd -l -hA --group-dirs first"                                  # List directory detailed
+alias cl="clear"                                                          # Clear
+alias z="zoxide"                                                          # Zoxide
+alias y="yazi"                                                            # Terminal based file manager
+
+# Git
+
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'   # Git Config dotfiles
+alias cfgup="config add -u; config commit -m "Config updated""            # Git Config dotfiles add and commit
