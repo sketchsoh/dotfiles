@@ -1,0 +1,13 @@
+# Aliases
+
+alias moff="wlr-randr --output eDP-1 --off"
+alias mon="wlr-randr --output eDP-1 --on"
+alias l="lsd -hA --group-dirs first"
+alias ll="lsd -l -hA --group-dirs first"
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias off="systemctl poweroff"
+alias rst="systemctl reboot"
+alias cfgup="config add -u; config commit -m "Config updated""
+alias cl="clear"
+alias z="zoxide"
+alias y="yazi"
