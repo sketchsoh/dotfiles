@@ -15,6 +15,7 @@ alias ll="lsd -l -hA --group-dirs first"                                  # List
 alias cl="clear"                                                          # Clear
 alias z="zoxide"                                                          # Zoxide
 alias y="yazi"                                                            # Terminal based file manager
+alias f="fuck"                                                            # Fuck command
 
 # Git
 

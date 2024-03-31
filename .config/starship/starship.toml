@@ -29,7 +29,6 @@ $jobs\
 $battery\
 $time\
 $status\
-$os\
 $container\
 $shell\
 $line_break\
@@ -43,7 +42,8 @@ add_newline = false
 # Second param
 [hostname]
 ssh_only = false
-format = "[](fg:#9ece6a bg:none)[█](fg:#9ece6a bg:#252525)[Dern](#24283b bold bg:#9ece6a)[](fg:#9ece6a bg:none) "
+format = "[]($style)[ ](bold #7dcfff bg:#1f2335)[]($style) [](fg:#9ece6a bg:none)[Dern](#24283b bold bg:#9ece6a)[](fg:#9ece6a bg:none) "
+style = "fg:#1f2335 bg:none"
 disabled = false
 
 # Third param
