@@ -82,5 +82,5 @@ eval "$(fzf --zsh)"
 
 PROMPT_COMMAND='echo -en "\033]0;Kitty\a"'
 
-
+export PATH="$PATH:/home/dern/.dotnet/tools"
 export PATH=$PATH:/home/dern/.spicetify

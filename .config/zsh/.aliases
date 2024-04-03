@@ -16,6 +16,7 @@ alias cl="clear"                                                          # Clea
 alias z="zoxide"                                                          # Zoxide
 alias y="yazi"                                                            # Terminal based file manager
 alias f="fuck"                                                            # Fuck command
+alias vim="nvim"                                                          # Neovim
 
 # Git
 
