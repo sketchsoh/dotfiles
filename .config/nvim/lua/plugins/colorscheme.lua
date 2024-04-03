@@ -1,11 +1,14 @@
 return {
 
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", opts = {
+    transparent_background = true,
+  }, priority = 1000 },
 
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin-macchiato",
+      transparent_background = true,
       integrations = {
         coc_nvim = true,
       },
