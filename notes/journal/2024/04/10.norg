@@ -1,0 +1,15 @@
+@document.meta
+title: 10
+description: 
+authors: dern
+categories: 
+created: 2024-04-10T09:59:33+0730
+updated: 2024-04-10T09:59:33+0730
+version: 1.1.1
+@end
+
+* Today
+
+
+  I udpated my neorg config file and added table support so hopefully
+  I can make my notes look a bit nicer.
