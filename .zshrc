@@ -1,3 +1,4 @@
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=1000
@@ -79,6 +80,7 @@ eval "$(starship init zsh)"
 eval $(thefuck --alias FUCK)
 eval $(thefuck --alias)
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 PROMPT_COMMAND='echo -en "\033]0;Kitty\a"'
 
