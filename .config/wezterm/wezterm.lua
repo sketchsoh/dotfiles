@@ -36,12 +36,12 @@ config.colors = {
 
 -- Font
 config.font = wezterm.font({
-	family = "Fira Code",
+	family = "Iosevka Term",
 	weight = "Medium",
-	stretch = "Normal",
 	style = "Normal",
-	harfbuzz_features = { "cv29", "cv30", "ss01", "ss03", "ss06", "ss07", "ss09" },
+	stretch = "Expanded",
 })
+config.harfbuzz_features = { "dlig = 1" }
 config.font_size = 14.0
 config.hide_mouse_cursor_when_typing = true
 
@@ -67,31 +67,31 @@ config.disable_default_key_bindings = true
 config.keys = {
 	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
 	{ key = "a", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x01" }) },
-	{ key = "-", mods = "LEADER",      action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
+	{ key = "-", mods = "LEADER", action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }) },
 	{
 		key = "\\",
 		mods = "LEADER",
 		action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 	},
-	{ key = "z", mods = "LEADER",     action = "TogglePaneZoomState" },
-	{ key = "c", mods = "LEADER",     action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
-	{ key = "1", mods = "LEADER",     action = wezterm.action({ ActivateTab = 0 }) },
-	{ key = "2", mods = "LEADER",     action = wezterm.action({ ActivateTab = 1 }) },
-	{ key = "3", mods = "LEADER",     action = wezterm.action({ ActivateTab = 2 }) },
-	{ key = "4", mods = "LEADER",     action = wezterm.action({ ActivateTab = 3 }) },
-	{ key = "5", mods = "LEADER",     action = wezterm.action({ ActivateTab = 4 }) },
-	{ key = "6", mods = "LEADER",     action = wezterm.action({ ActivateTab = 5 }) },
-	{ key = "7", mods = "LEADER",     action = wezterm.action({ ActivateTab = 6 }) },
-	{ key = "8", mods = "LEADER",     action = wezterm.action({ ActivateTab = 7 }) },
-	{ key = "9", mods = "LEADER",     action = wezterm.action({ ActivateTab = 8 }) },
+	{ key = "z", mods = "LEADER", action = "TogglePaneZoomState" },
+	{ key = "c", mods = "LEADER", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
+	{ key = "1", mods = "LEADER", action = wezterm.action({ ActivateTab = 0 }) },
+	{ key = "2", mods = "LEADER", action = wezterm.action({ ActivateTab = 1 }) },
+	{ key = "3", mods = "LEADER", action = wezterm.action({ ActivateTab = 2 }) },
+	{ key = "4", mods = "LEADER", action = wezterm.action({ ActivateTab = 3 }) },
+	{ key = "5", mods = "LEADER", action = wezterm.action({ ActivateTab = 4 }) },
+	{ key = "6", mods = "LEADER", action = wezterm.action({ ActivateTab = 5 }) },
+	{ key = "7", mods = "LEADER", action = wezterm.action({ ActivateTab = 6 }) },
+	{ key = "8", mods = "LEADER", action = wezterm.action({ ActivateTab = 7 }) },
+	{ key = "9", mods = "LEADER", action = wezterm.action({ ActivateTab = 8 }) },
 	{ key = "q", mods = "CTRL|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
-	{ key = "x", mods = "LEADER",     action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 
 	{ key = "n", mods = "SHIFT|CTRL", action = "ToggleFullScreen" },
 	{ key = "v", mods = "SHIFT|CTRL", action = wezterm.action.PasteFrom("Clipboard") },
 	{ key = "c", mods = "SHIFT|CTRL", action = wezterm.action.CopyTo("Clipboard") },
-	{ key = "=", mods = "CTRL",       action = "IncreaseFontSize" },
-	{ key = "-", mods = "CTRL",       action = "DecreaseFontSize" },
+	{ key = "=", mods = "CTRL", action = "IncreaseFontSize" },
+	{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
 	{ key = "0", mods = "SHIFT|CTRL", action = "ResetFontSize" },
 	{
 		key = "R",
