@@ -1,0 +1,41 @@
+* Platformer Movement
+
+** Basic Movement
+
+@code csharp
+// CheckInput checks for user input
+    private void CheckInput()
+   {
+        moveDir = Input.GetAxis("Horizontal");
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            isJumping = true;
+        }
+    }
+
+
+   // ApplyMovement uses CheckInput to apply velocity changes to Player
+    private void ApplyMovement()
+    {
+        rb2d.velocity = new Vector2(moveSpeed * moveDir, rb2d.velocity.y);
+
+        if (isJumping)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            isJumping = false;
+        }
+    }
+
+
+    // Flips the sprite based on player velocity
+    private void Flip()
+    {
+        if (moveDir < 0 && isFacingRight || moveDir > 0 && !isFacingRight)
+        {
+            isFacingRight = !isFacingRight;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
+}
+@end
+
