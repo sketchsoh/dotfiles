@@ -34,6 +34,7 @@ config.colors = {
 	},
 }
 
+--
 -- Font
 config.font = wezterm.font({
 	family = "Iosevka Term",
@@ -41,7 +42,7 @@ config.font = wezterm.font({
 	style = "Normal",
 	stretch = "Expanded",
 })
-config.harfbuzz_features = { "dlig = 1" }
+config.harfbuzz_features = { "dlig = 1", "ss14", "calt = 0" }
 config.font_size = 14.0
 config.hide_mouse_cursor_when_typing = true
 
