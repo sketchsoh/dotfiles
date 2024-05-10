@@ -39,4 +39,6 @@ return {
   { import = "astrocommunity.search.sad-nvim" },
   -- Syntax
   { import = "astrocommunity.syntax.hlargs-nvim" },
+  -- AI
+  { import = "astrocommunity.completion.codeium-vim" },
 }

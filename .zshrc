@@ -50,6 +50,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 export PATH="/home/dern/.local/bin:$PATH"
 export PATH="/home/dern/.cargo/bin:$PATH"
+export PATH=$PATH:/home/$USER/.emacs.d/bin
 
 source ~/.config/zsh/.aliases
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -126,9 +127,7 @@ _fzf_comprun() {
 eval "$(zoxide init zsh)"
 
 export PATH="$PATH:/home/dern/.dotnet/tools"
-export BAT_THEME=Catppuccin-macchiato
-export PATH=$PATH:/home/dern/.spicetify
-export OPENAI_KEY=sk-proj-wr1rIWzV9GyRMI545GLST3BlbkFJrqC4VBcm3t3XvSngBIwE
+export BAT_THEME=kanagawa
 #  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
