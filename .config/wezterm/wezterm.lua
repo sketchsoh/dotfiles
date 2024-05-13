@@ -30,7 +30,7 @@ config.colors = {
 	brights = { "#727169", "#e82424", "#98bb6c", "#e6c384", "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba" },
 	indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 	tab_bar = {
-		background = "#1f1f28",
+		background = "#16161D",
 	},
 }
 
@@ -55,6 +55,12 @@ config.inactive_pane_hsb = {
 	hue = 1.0,
 	saturation = 0.9,
 	brightness = 0.7,
+}
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
 
 -- Bell
@@ -113,7 +119,7 @@ config.keys = {
 
 -- Wez-Status-Bar
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.show_new_tab_button_in_tab_bar = false
 
 smart_splits.apply_to_config(config, {
@@ -162,7 +168,7 @@ wezterm.on("update-status", function(window, pane)
 				background = "#E6c384",
 			},
 		},
-		separator = status_generator.separators.SLANT,
+		separator = status_generator.separators.SLANT_REVERSE,
 		hide_empty_sections = true,
 	})
 	local left_status = status_generator.generate_left_status({
@@ -177,7 +183,7 @@ wezterm.on("update-status", function(window, pane)
 				background = "#E6c384",
 			},
 		},
-		separator = status_generator.separators.SLANT,
+		separator = status_generator.separators.SLANT_REVERSE,
 		hide_empty_sections = true,
 	})
 
@@ -185,10 +191,10 @@ wezterm.on("update-status", function(window, pane)
 	window:set_left_status(left_status)
 end)
 
-local SOLID_LEFT_ARROW = "█"
+local SOLID_LEFT_ARROW = "█"
 
 -- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = "█"
+local SOLID_RIGHT_ARROW = "█"
 
 -- This function returns the suggested title for a tab.
 -- It prefers the title that was set via `tab:set_title()`
@@ -206,8 +212,8 @@ function tab_title(tab_info)
 end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local edge_background = "#1f1f28"
-	local background = "#1f1f28"
+	local edge_background = "#16161D"
+	local background = "#16161D"
 	local foreground = "#cad3f5"
 
 	if tab.is_active then
