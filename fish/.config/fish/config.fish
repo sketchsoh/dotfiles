@@ -23,6 +23,7 @@ abbr --add vi nvim
 abbr --add l ls -lah --git --git-repos --no-user --time-style relative --no-permissions
 abbr --add lg lazygit
 abbr --add ff fastfetch
+abbr --add cmac ssh dern@192.168.18.100
 
 alias cat='bat'
 
