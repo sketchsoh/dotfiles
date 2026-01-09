@@ -6,15 +6,6 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #    # smth smth
 #end
 
-zoxide init --cmd cd fish | source
-pay-respects fish --alias | source
-
-function starship_transient_prompt_func
-    starship module character
-end
-starship init fish | source
-enable_transience
-
 abbr --add z cd
 abbr --add zi cdi
 abbr --add cl clear
@@ -85,3 +76,12 @@ set -Ux LS_COLORS $(vivid generate catppuccin-macchiato)
 if status is-interactive
     eval (zellij setup --generate-auto-start fish | string collect)
 end
+
+zoxide init --cmd cd fish | source
+pay-respects fish --alias | source
+
+function starship_transient_prompt_func
+    starship module character
+end
+starship init fish | source
+enable_transience
