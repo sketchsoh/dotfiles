@@ -74,23 +74,28 @@ return {
           },
         },
         border = "rounded",
+        -- winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+        -- winblend = 30,
       },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
         treesitter_highlighting = true,
-        window = { border = "rounded" },
+        window = {
+          border = "rounded",
+          -- winblend = 30,
+        },
       },
       ghost_text = {
         enabled = vim.g.ai_cmp,
       },
     },
-
-    -- experimental signature help support
-    -- signature = { enabled = true },
     signature = {
       enabled = true,
-      window = { border = "rounded" },
+      window = {
+        border = "rounded",
+        -- winblend = 30,
+      },
     },
     sources = {
       -- adding any nvim-cmp sources here will enable them
