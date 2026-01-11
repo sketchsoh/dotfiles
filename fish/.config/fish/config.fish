@@ -1,10 +1,8 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+if status is-interactive
+    eval (zellij setup --generate-auto-start fish | string collect)
+end
 
-# overwrite greeting
-# potentially disabling fastfetch
-#function fish_greeting
-#    # smth smth
-#end
+source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 abbr --add z cd
 abbr --add zi cdi
@@ -73,9 +71,6 @@ set fzf_diff_highlighter delta --paging=never --width=20
 set -Ux LS_COLORS $(vivid generate catppuccin-macchiato)
 
 # Start Shell with Zellij
-if status is-interactive
-    eval (zellij setup --generate-auto-start fish | string collect)
-end
 
 zoxide init --cmd cd fish | source
 pay-respects fish --alias | source
