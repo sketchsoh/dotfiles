@@ -1,4 +1,4 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+# source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 # overwrite greeting
 # potentially disabling fastfetch
@@ -25,6 +25,7 @@ abbr --add lg lazygit
 abbr --add ff fastfetch
 
 alias cat='bat'
+alias ls='eza'
 
 # FZF SETTINGS
 
