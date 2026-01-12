@@ -11,9 +11,11 @@ pay-respects fish --alias | source
 
 function starship_transient_prompt_func
     starship module character
+if status is-interactive
+    eval (zellij setup --generate-auto-start fish | string collect)
 end
-starship init fish | source
-enable_transience
+
+source /usr/share/cachyos-fish-config/cachyos-config.fish
 
 abbr --add z cd
 abbr --add zi cdi
@@ -23,6 +25,7 @@ abbr --add vi nvim
 abbr --add l ls -lah --git --git-repos --no-user --time-style relative --no-permissions
 abbr --add lg lazygit
 abbr --add ff fastfetch
+abbr --add cmac ssh dern@192.168.18.100
 
 alias cat='bat'
 alias ls='eza'
@@ -82,6 +85,12 @@ set fzf_diff_highlighter delta --paging=never --width=20
 set -Ux LS_COLORS $(vivid generate catppuccin-macchiato)
 
 # Start Shell with Zellij
-if status is-interactive
-    eval (zellij setup --generate-auto-start fish | string collect)
+
+zoxide init --cmd cd fish | source
+pay-respects fish --alias | source
+
+function starship_transient_prompt_func
+    starship module character
 end
+starship init fish | source
+enable_transience

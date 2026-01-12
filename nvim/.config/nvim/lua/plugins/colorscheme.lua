@@ -11,6 +11,11 @@ return {
   priority = 1000,
   opts = {
     flavour = "macchiato",
+    transparent_background = true,
+    float = {
+      transparent = true,
+      solid = false,
+    },
     lsp_styles = {
       underlines = {
         errors = { "undercurl" },
@@ -23,6 +28,9 @@ return {
       aerial = true,
       alpha = true,
       cmp = true,
+      blink_cmp = {
+        style = "bordered",
+      },
       dashboard = true,
       flash = true,
       fzf = true,
