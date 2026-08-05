@@ -1,6 +1,6 @@
-if status is-interactive
-    eval (zellij setup --generate-auto-start fish | string collect)
-end
+# if status is-interactive
+#     eval (zellij setup --generate-auto-start fish | string collect)
+# end
 
 source /usr/share/cachyos-fish-config/cachyos-config.fish
 
@@ -8,14 +8,61 @@ abbr --add z cd
 abbr --add zi cdi
 abbr --add cl clear
 abbr --add v nvim
-abbr --add vi nvim
 abbr --add l ls -lah --git --git-repos --no-user --time-style relative --no-permissions
 abbr --add lg lazygit
 abbr --add ff fastfetch
-abbr --add cmac ssh dern@192.168.18.100
-
+abbr --add vi nvim
 alias cat='bat'
 
+function px
+    paru -Qq | fzf -m \
+        --style full \
+        --layout reverse \
+        --border \
+        --padding 1,2 \
+        --border-label ' Remove Package ' \
+        --input-label ' Search ' \
+        --header-label ' Package Info ' \
+        --bind 'result:transform-list-label:if [[ -z $FZF_QUERY ]]; then echo " $FZF_MATCH_COUNT packages "; else echo " $FZF_MATCH_COUNT matches for [$FZF_QUERY] "; fi' \
+        --bind 'focus:transform-preview-label:[[ -n {} ]] && printf " Previewing [%s] " {}' \
+        --preview 'bash -c "bat --color=always --language=yaml <(paru -Qi {1} 2>/dev/null | grep -e \"Install Reason\"; echo \"\") --language=yaml <(paru -Si {1} 2>/dev/null) --language=bash <(paru -Fl {1} 2>/dev/null | awk '"'"'NR>0{print $2}'"'"')"' \
+        | xargs -ro paru -Rsn
+end
+
+function pi
+    paru -Sy &>/dev/null
+    paru -Slq | fzf -m \
+        --style full \
+        --layout reverse \
+        --border \
+        --padding 1,2 \
+        --border-label ' Install Package ' \
+        --input-label ' Search ' \
+        --header-label ' Package Info ' \
+        --bind 'result:transform-list-label:if [[ -z $FZF_QUERY ]]; then echo " $FZF_MATCH_COUNT packages "; else echo " $FZF_MATCH_COUNT matches for [$FZF_QUERY] "; fi' \
+        --bind 'focus:transform-preview-label:[[ -n {} ]] && printf " Previewing [%s] " {}' \
+        --preview 'bash -c "bat --color=always --language=yaml <(paru -Qi {1} 2>/dev/null | grep -e \"Install Reason\"; echo \"\") --language=yaml <(paru -Si {1} 2>/dev/null) --language=bash <(paru -Fl {1} 2>/dev/null | awk '"'"'NR>0{print $2}'"'"')"' \
+        | xargs -ro paru -S
+end
+
+function pu
+    paru -Sy &>/dev/null
+    paru -Qu 2>/dev/null | fzf -m \
+        --style full \
+        --layout reverse \
+        --border \
+        --padding 1,2 \
+        --border-label ' Available Updates ' \
+        --input-label ' Search ' \
+        --header-label ' Package Info ' \
+        --with-nth 1 \
+        --delimiter ' ' \
+        --bind 'result:transform-list-label:if [[ -z $FZF_QUERY ]]; then echo " $FZF_MATCH_COUNT updates "; else echo " $FZF_MATCH_COUNT matches for [$FZF_QUERY] "; fi' \
+        --bind 'focus:transform-preview-label:[[ -n {} ]] && printf " Previewing [%s] " {1}' \
+        --bind 'focus:transform-header:echo {1} {2} {3} {4}' \
+        --preview 'bash -c "bat --color=always --language=yaml <(paru -Qi {1} 2>/dev/null | grep -e \"Install Reason\"; echo \"\") --language=yaml <(paru -Si {1} 2>/dev/null) --language=bash <(paru -Fl {1} 2>/dev/null | awk '"'"'NR>0{print $2}'"'"')"' \
+        | awk '{print $1}' | xargs -ro paru -S
+end
 # FZF SETTINGS
 
 # FZF colours to use catppuccin-macchiato
@@ -74,6 +121,10 @@ set -Ux LS_COLORS $(vivid generate catppuccin-macchiato)
 
 zoxide init --cmd cd fish | source
 pay-respects fish --alias | source
+
+set -gx PATH /opt/cuda/bin $PATH
+set -gx LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
+set -gx PATH ~/llama.cpp/build/bin $PATH
 
 function starship_transient_prompt_func
     starship module character

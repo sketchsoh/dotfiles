@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Dern config
-
+config.enable_wayland = false
 -- Window Rules
 config.initial_cols = 114
 config.animation_fps = 170
